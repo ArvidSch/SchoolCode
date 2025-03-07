@@ -34,17 +34,44 @@ class greenOnOff {
       digitalWrite(4, LOW);
     }
 };
+void p13On(){
+  digitalWrite(13, HIGH);
+}
+void p13Off(){
+  digitalWrite(13, LOW);
+}
 void wait(){
-  delay(1200);
+  delay(1500);
 }
 
 void swait(){
+  delay(800);
+}
+void sosWait(){
   delay(600);
 }
+
+static void sosSwait(){
+  delay(300);
+}
+
 //skaffa fram alla classes
 redOnOff red;
 yellowOnOff yellow;
 greenOnOff green;
+
+void allOn(){
+  red.on();
+  yellow.on();
+  green.on();
+  p13On();
+}
+void allOff(){
+  red.off();
+  yellow.off();
+  green.off();
+  p13Off();
+}
 
 void trafficLight(bool enable){
   if (enable = true){
@@ -56,6 +83,12 @@ void trafficLight(bool enable){
     yellow.off();
     green.on();
     wait();
+    green.off();
+    yellow.on();
+    wait();
+    yellow.off();
+    red.on();
+    
 
     red.off(); //reset
     yellow.off();
@@ -94,6 +127,7 @@ void refresh(bool enable){
     yellow.off();
     swait();
     green.off();
+   
 
     red.off(); //reset
     yellow.off();
@@ -101,12 +135,54 @@ void refresh(bool enable){
   }
 }
 
+void ledBlink(){
+p13On();
+red.on();
+green.on();
+yellow.on();
+wait();
+p13Off();
+red.off();
+yellow.off();
+green.off();
+wait();
+}
+/*
+static void sos(){
+  allOn();
+  sosSWait();
+  allOff();
+  sosSWait();
+  allOn();
+  sosSWait();
+  allOff();
+  sosSWait();
+  allOn();
+  sosSWait();
+  allOff();
+
+  sosWait();
+  allOn();
+  wait();
+  allOff();
+  sosWait();
+  allOn();
+  sosWait();
+  allOff();
+  sosWait();
+  allOn();
+  sosWait();
+  allOff();
+}
+
+/**/
 
 // Skapa objekt av klasserna globalt så att de är tillgängliga i både setup() och loop()
 void setup() { 
   pinMode(2, OUTPUT); // Red LED
   pinMode(3, OUTPUT); // Yellow LED
   pinMode(4, OUTPUT); // Green LED
+  pinMode(13,OUTPUT);
 
   red.off(); //reset
   yellow.off();
@@ -116,36 +192,11 @@ void setup() {
 
 void loop() {
 
+//sos();
+//ledBlink();
   trafficLight(on);
+  /*
   bounce(off);
   refresh(off);
+  /**/
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

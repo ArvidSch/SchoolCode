@@ -7,7 +7,7 @@
 - Breadboard (optional).
  
 > [!NOTE]
-> Connect pin 2 to the red, pin 3 to the yellow and pin 4 to the green.
+> Connect pin 2 to the red, pin 3 to the yellow and pin 4 to the green. (Or change the pin int's in the start)
 
 > [!IMPORTANT]
 > Dont forget the resistors, failiure to connect them can lead to the diode getting too much power and breaking.

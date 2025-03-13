@@ -2,36 +2,40 @@
 bool on = true;
 bool off = false;
 
+int redPin = 2;
+int yellowPin = 3;
+int greenPin = 4;
+
 class redOnOff {
   public:
     void on() {  
-      digitalWrite(2, HIGH);
+      digitalWrite(redPin, HIGH);
     }
 
     void off() { 
-      digitalWrite(2, LOW);
+      digitalWrite(redPin, LOW);
     }
 };
 
 class yellowOnOff {
   public:
     void on() {  
-      digitalWrite(3, HIGH);
+      digitalWrite(yellowPin, HIGH);
     }
 
     void off() { 
-      digitalWrite(3, LOW);
+      digitalWrite(yellowPin, LOW);
     }
 };
 
 class greenOnOff {
   public:
     void on() {  
-      digitalWrite(4, HIGH);
+      digitalWrite(greenPin, HIGH);
     }
 
     void off() { 
-      digitalWrite(4, LOW);
+      digitalWrite(greenPin, LOW);
     }
 };
 void p13On(){

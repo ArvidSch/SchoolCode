@@ -5,7 +5,9 @@ bool off = false;
 int redPin = 2;
 int yellowPin = 3;
 int greenPin = 4;
-
+int fRedPin = 6;
+int fGreenPin = 7;
+int piezo = 8;
 class redOnOff {
   public:
     void on() {  
@@ -44,6 +46,29 @@ void p13On(){
 void p13Off(){
   digitalWrite(13, LOW);
 }
+void frOn(){
+  digitalWrite(fRedPin, HIGH);
+}
+void frOff(){
+  digitalWrite(fRedPin, LOW);
+}
+
+void fgOn(){
+  digitalWrite(fGreenPin, HIGH);
+}
+void fgOff(){
+  digitalWrite(fGreenPin, LOW);
+}
+void pOn(){
+  digitalWrite(piezo, HIGH);
+}
+void pOff(){
+  digitalWrite(piezo, LOW);
+}
+
+
+
+
 void wait(){
   delay(1500);
 }
@@ -151,6 +176,71 @@ yellow.off();
 green.off();
 wait();
 }
+void footBlink(){
+  fgOff();
+  delay(200);
+  fgOn();
+  pOn();
+  delay(200);
+  pOff();
+  fgOff();
+  delay(200);
+  fgOn();
+  pOn();
+  delay(200);
+  pOff();
+  fgOff();
+  delay(200);
+  fgOn();
+  pOn();
+  delay(200);
+  pOff();
+  fgOff();
+  delay(200);
+   fgOn();
+  pOn();
+  delay(200);
+  pOff();
+  fgOff();
+  delay(200);
+   fgOn();
+  pOn();
+  delay(200);
+  pOff();
+  fgOff();
+  delay(200);
+   fgOn();
+  pOn();
+  delay(200);
+  pOff();
+  fgOff();
+  delay(200);
+
+  
+}
+void fotTrafficLight(){
+  
+green.off();
+yellow.on();
+wait();
+yellow.off();
+
+red.on();
+delay(800);
+frOff();
+fgOn();
+
+
+delay(3000);
+footBlink();
+
+fgOff();
+yellow.on();
+frOn();
+wait();
+red.off();
+yellow.off();
+}
 /*
 static void sos(){
   allOn();
@@ -186,8 +276,11 @@ void setup() {
   pinMode(2, OUTPUT); // Red LED
   pinMode(3, OUTPUT); // Yellow LED
   pinMode(4, OUTPUT); // Green LED
-  pinMode(13,OUTPUT);
+  pinMode(13, INPUT);
 
+  pinMode(6, OUTPUT); 
+  pinMode(7, OUTPUT);
+pinMode(8, OUTPUT);
   red.off(); //reset
   yellow.off();
   green.off();
@@ -198,9 +291,29 @@ void loop() {
 
 //sos();
 //ledBlink();
-  trafficLight(on);
+int pin13In = digitalRead(13);
+
+ // trafficLight(on);
+  
+if (pin13In == 0)
+{
+
+
+green.on();
+frOn();
+}
+else 
+{
+
+fotTrafficLight();
+
+}
+
+
+  
   /*
   bounce(off);
   refresh(off);
   /**/
+
 }

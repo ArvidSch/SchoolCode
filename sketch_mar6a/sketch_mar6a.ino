@@ -271,6 +271,31 @@ static void sos(){
 
 /**/
 
+void anim(){
+  int d = 0;
+  while (d < 150)
+  red.on();
+  green.off();
+  delay(d);
+  red.off();
+  green.on();
+  delay(d);
+  d = d + 50;
+}
+
+void random(int i){
+  if (i == 1){
+    //anim();
+    red.on();
+    green.off();
+  }
+  else{
+    //anim();
+    green.on();
+    red.off();
+  }
+}
+
 // Skapa objekt av klasserna globalt så att de är tillgängliga i både setup() och loop()
 void setup() { 
   pinMode(2, OUTPUT); // Red LED
@@ -280,15 +305,60 @@ void setup() {
 
   pinMode(6, OUTPUT); 
   pinMode(7, OUTPUT);
-pinMode(8, OUTPUT);
+  pinMode(8, OUTPUT);
   red.off(); //reset
   yellow.off();
   green.off();
 
 }
-
 void loop() {
+  
+int rand = 0;
+rand = digitalRead(13);
+if (rand == 1){
+  random(1);
+  while (rand != 0){
+    rand = digitalRead(13);
+  }
 
+  rand = 0;
+}
+
+
+rand = digitalRead(13);
+if (rand == 1){
+  random(2);
+  while (rand != 0){
+    rand = digitalRead(13);
+  }
+  rand = 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+green.on();
+red.off();
+swait();
+red.on();
+green.off();
+swait();
+/**/
+
+
+/*
 //sos();
 //ledBlink();
 int pin13In = digitalRead(13);
@@ -297,7 +367,6 @@ int pin13In = digitalRead(13);
   
 if (pin13In == 0)
 {
-
 
 green.on();
 frOn();
@@ -309,11 +378,13 @@ fotTrafficLight();
 
 }
 
+/**/
 
   
-  /*
-  bounce(off);
-  refresh(off);
+  
+  //bounce(on);
+
+  //refresh(on);
   /**/
 
 }

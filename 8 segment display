@@ -7,8 +7,8 @@ void off(){
   digitalWrite(7,LOW);
   digitalWrite(8,LOW);
 }
-
-
+ 
+ 
 void load(){
 int delayint =50;
 off();
@@ -31,53 +31,55 @@ digitalWrite(8,HIGH);
 delay(delayint);
 digitalWrite(8,LOW);
 }
-
-void ett(){
+ 
+void one(){
+  off();
   digitalWrite(2,HIGH);
   digitalWrite(3,HIGH);
-
+ 
 }
-
+ 
 void two(){
-    digitalWrite(2,HIGH);
-      digitalWrite(4,HIGH);
-        digitalWrite(5,HIGH);
-          digitalWrite(7,HIGH);
-    digitalWrite(8,HIGH);
+  off();
+  digitalWrite(2,HIGH);
+  digitalWrite(4,HIGH);
+  digitalWrite(5,HIGH);
+  digitalWrite(7,HIGH);
+  digitalWrite(8,HIGH);
 }
 void three(){
+  off();
   digitalWrite(2,HIGH);
   digitalWrite(3,HIGH);
-        digitalWrite(4,HIGH);
-
+  digitalWrite(4,HIGH);
+ 
   digitalWrite(7,HIGH);
     digitalWrite(8,HIGH);
 }
 void four(){
+  off();
   digitalWrite(2,HIGH);
   digitalWrite(3,HIGH);
   digitalWrite(6,HIGH);
   digitalWrite(7,HIGH);
 }
 void five(){
-
-digitalWrite(3,HIGH);
-        digitalWrite(4,HIGH);
-
-digitalWrite(6,HIGH);
-digitalWrite(7,HIGH);
-digitalWrite(8,HIGH);
+  off();
+  digitalWrite(3,HIGH);
+  digitalWrite(4,HIGH);
+  digitalWrite(6,HIGH);
+  digitalWrite(7,HIGH);
+  digitalWrite(8,HIGH);
 }
-
+ 
 void six(){
-
-digitalWrite(3,HIGH);
-digitalWrite(4,HIGH);
-digitalWrite(5,HIGH);
-
-digitalWrite(6,HIGH);
-digitalWrite(7,HIGH);
-digitalWrite(8,HIGH);
+  off();
+  digitalWrite(3,HIGH);
+  digitalWrite(4,HIGH);
+  digitalWrite(5,HIGH);
+  digitalWrite(6,HIGH);
+  digitalWrite(7,HIGH);
+  digitalWrite(8,HIGH);
 }
 void seven(){
   digitalWrite(2,HIGH);
@@ -93,7 +95,7 @@ void eight(){
   digitalWrite(7,HIGH);
   digitalWrite(8,HIGH);
 }
-
+ 
 void nine(){
   digitalWrite(2,HIGH);
   digitalWrite(3,HIGH);
@@ -102,15 +104,23 @@ void nine(){
   digitalWrite(7,HIGH);
   digitalWrite(8,HIGH);
 }
-
-
-
-
-
-
-
-
-
+void zero(){
+  digitalWrite(2,HIGH);
+  digitalWrite(3,HIGH);
+  digitalWrite(4,HIGH);
+  digitalWrite(5,HIGH);
+  digitalWrite(6,HIGH);
+  //digitalWrite(7,HIGH);
+  digitalWrite(8,HIGH);
+}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 void setup() {
   // put your setup code here, to run once:
 pinMode(2, OUTPUT);
@@ -120,21 +130,57 @@ pinMode(5, OUTPUT);
 pinMode(6, OUTPUT);
 pinMode(7, OUTPUT);
 pinMode(8, OUTPUT);
+Serial.begin(9600);
 }
-
+ 
 void loop() {
   // put your main code here, to run repeatedly:
-ett();
-delay(200);load();
+
+int light = analogRead(A0);
+Serial.println(light);
+int dly = 20;
+if (light >= 0 && light < 10){
+  zero();
+  delay(dly);
+}
+if (light > 10 && light < 20){
+  one();
+  delay(dly);
+}
+if (light > 20 && light < 30){
+  two();
+  delay(dly);
+}
+if (light > 30 && light < 40){
+  three();
+  delay(dly);
+}
+if (light > 40 && light < 50){
+  four();
+  delay(dly);
+}
+if (light > 50 && light < 60){
+  five();
+  delay(dly);
+}
+if (light > 60 && light < 70){
+  six();
+  delay(dly);
+}
+if (light > 70 && light < 80){
+  seven();
+  delay(dly);
+}
+if (light > 80 && light < 90){
+  eight();
+  delay(dly);
+}
+
+if (light > 90 && light < 2000){
+  nine();
+  delay(dly);
+}
+
 off();
-two();delay(200);off();load();
-three();delay(200);off();load();
-four();delay(200);off();load();
-five();delay(200);off();load();
-six();delay(200);off();load();
-seven();delay(200);off();load();
-eight();delay(200);off();load();
-nine();delay(200);off();load();
-load();
 
 }

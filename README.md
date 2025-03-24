@@ -22,3 +22,14 @@
 >  refresh(off);
 >}
 >```
+
+
+![alt text]([http://url/to/img.png](https://media.parallax.com/wp-content/uploads/2020/07/13155129/350-00027a.png))
+> [!IMPORTANT]
+> B = 2  
+> C = 3  
+> D = 4  
+> E = 5  
+> F = 6  
+> G = 7  
+> A = 8  

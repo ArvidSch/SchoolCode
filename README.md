@@ -24,7 +24,7 @@
 >```
 
 
-![alt text]([http://url/to/img.png](https://media.parallax.com/wp-content/uploads/2020/07/13155129/350-00027a.png))
+
 > [!IMPORTANT]
 > B = 2  
 > C = 3  
@@ -33,3 +33,4 @@
 > F = 6  
 > G = 7  
 > A = 8  
+> ![350-00027a (1)](https://github.com/user-attachments/assets/8f860dd7-fcd6-4269-9146-6df793b7b3b5)

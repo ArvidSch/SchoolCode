@@ -60,7 +60,7 @@ static void d(int i){
  digitalWrite(out2, LOW);
  digitalWrite(out3, LOW);
  digitalWrite(out4, HIGH);
- delay(i);
+ delay(i*8.66666);
  digitalWrite(out1, LOW);
  digitalWrite(out2, LOW);
  digitalWrite(out3, LOW);
@@ -77,9 +77,9 @@ void loop() {
   //analogWrite(9, 255); //ENA   pin
  // analogWrite(10, 255); //ENB pin
   //(Optional)
+  w(3500);
+  d(90);
+  w(1800);
   a(90);
-  stop(1000);
-  w(2500);
-
   //s(2000);
 }

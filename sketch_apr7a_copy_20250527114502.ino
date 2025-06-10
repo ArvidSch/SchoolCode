@@ -48,7 +48,7 @@ static void a(int i){
  digitalWrite(out2, HIGH);
  digitalWrite(out3, HIGH);
  digitalWrite(out4, LOW);
- delay(i*8.66666);
+ delay(i*8.6);
  digitalWrite(out1, LOW);
  digitalWrite(out2, LOW);
  digitalWrite(out3, LOW);
@@ -60,6 +60,18 @@ static void d(int i){
  digitalWrite(out2, LOW);
  digitalWrite(out3, LOW);
  digitalWrite(out4, HIGH);
+ delay(i*8.6);
+ digitalWrite(out1, LOW);
+ digitalWrite(out2, LOW);
+ digitalWrite(out3, LOW);
+ digitalWrite(out4, LOW);
+}
+static void manD(int i){
+  
+ digitalWrite(out1,HIGH );
+ digitalWrite(out2, LOW);
+ digitalWrite(out3, LOW);
+ digitalWrite(out4, LOW);
  delay(i*8.66666);
  digitalWrite(out1, LOW);
  digitalWrite(out2, LOW);
@@ -69,6 +81,34 @@ static void d(int i){
 static void stop(int i){
   delay(i);
 }
+static void out (){
+  for (int i = 0; i < 3; i++){
+   w(100);
+   a(5);
+ s(100);
+   a(5);
+ w(100);
+   a(5);
+ s(100);
+   a(5);
+ w(100);
+   a(5);
+ s(100);
+   a(5);
+ w(100);
+   a(5);
+ s(100);
+   a(5);
+ w(100);
+   a(5);
+ s(100);
+   a(5);
+ w(100);
+   a(5);
+ s(100);
+   a(5);
+   }
+}
 void loop() {
    // put your main code here, to run repeatedly:
 
@@ -77,20 +117,55 @@ void loop() {
   //analogWrite(9, 255); //ENA   pin
  // analogWrite(10, 255); //ENB pin
   //(Optional)
-  w(3500);
-  d(90);
-  w(1450);
-  a(90);
-  w(1400);
-  s(200);
-  w(300);
-  s(400);
-  a(45);
-  w(250);
-  d(45);
-  w(300);
-  s(200);
-  w(300);
-  s(200);
+w(3500);
+a(20);
+w(1500);
+manD(700);
+s(700);
+d(20);
+w(2700);
+d(70);
+w(2500);
+d(45);
+w(2500);
+s(200);
+w(300);
+d(20);
+w(800);
+
+
+
+s(200);
+w(500);
+s(200);
+w(500);
+s(200);
+w(500);
+s(200);
+w(500);
+s(200);
+w(500);
+s(200);
+w(500);
+s(200);
+w(500);
+s(200);
+w(500);
+s(200);
+w(500);
+s(200);
+w(500);
+s(200);
+w(500);
+s(200);
+w(500);
+s(200);
+w(500);
+s(200);
+w(500);
+
+
+out();
+
   //s(2000);
 }
